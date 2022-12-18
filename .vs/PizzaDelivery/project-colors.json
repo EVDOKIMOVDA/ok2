@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e288c354-66ff-4afb-a634-c3be9df37aa0": {
+      "ProjectGuid": "e288c354-66ff-4afb-a634-c3be9df37aa0",
+      "DisplayName": "PizzaDelivery",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

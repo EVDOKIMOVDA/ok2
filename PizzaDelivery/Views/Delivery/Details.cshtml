@@ -1,0 +1,37 @@
+﻿@model PizzaDelivery.Data.Delivery
+
+@{ ViewData["Title"] = "Details"; }
+
+
+<div class="container">
+    <section>
+        <div class="row">
+            <div class="col-md-5 col-lg-3">
+                <div class="row">
+                    <aside class="col-sm-6 col-md-12 p-4">
+                        <img src="~/images/danke.jpg" class="img-thumbnail" alt="...">
+                    </aside>
+                </div>
+            </div>
+            <main class="col-md-7 col-lg-9 p-4">
+                <h4 class="text-left">
+                    Общие сведения о заказе
+                </h4>
+                    Время заказа: @Html.DisplayFor(model => model.Order_date)<br /><br />
+                    Время доставки: @Html.DisplayFor(model => model.Delivery_date)<br /><br />
+                    Цена: @Html.DisplayFor(model => model.Delivery_price)<br /><br />
+                    Клиент: @Html.DisplayFor(model => model.Client.Id)<br /><br />
+                    Курьер: @Html.DisplayFor(model => model.Courier.Id)<br /><br />
+                    Пицца: @Html.DisplayFor(model => model.Pizza.Pizza_name)<br /><br />
+            </main>
+
+        </div>
+    </section>
+</div>
+<div class="mx-auto" style="width: 300px">
+    <a class="btn btn-outline-info" asp-action="Index">Вернуться</a>
+    @if (User.IsInRole("admin") || User.IsInRole("moderator"))
+        {
+            <a class="btn btn-outline-info" asp-action="Update" asp-route-id="@Model.Id">Изменить</a>
+        }
+</div>

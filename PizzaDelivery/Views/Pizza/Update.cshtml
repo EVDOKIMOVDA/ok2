@@ -1,0 +1,70 @@
+﻿@model PizzaDelivery.ViewModels.DeliveryVM
+
+<form method="post" asp-action="Update">
+    <input asp-for="Delivery.Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Изменить пиццу</h2>
+        </div>
+        <div class="form-group row">
+            <div class="col-6">
+                <label asp-for="Delivery.Phone"></label>
+                <input asp-for="Delivery.Phone" class="form-control" />
+                <span asp-validation-for="Delivery.Phone" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="Delivery.Order_date"></label>
+                <input asp-for="Delivery.Order_date" class="form-control" />
+                <span asp-validation-for="Delivery.Order_date" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="Delivery.Delivery_date"></label>
+                <input asp-for="Delivery.Delivery_date" class="form-control" />
+                <span asp-validation-for="Delivery.Delivery_date" class="text-danger"></span>
+            </div>
+            <div class="col-6">
+                <label asp-for="Delivery.Delivery_price"></label>
+                <input asp-for="Delivery.Delivery_price" class="form-control" />
+                <span asp-validation-for="Delivery.Delivery_price" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <label asp-for="Delivery.Client"></label>
+                <select asp-for="Delivery.Client_id" asp-items="@Model.TDDClient" class="form-control">
+                    <option selected>--Выберите клиента--</option>
+                </select>
+                <span asp-validation-for="Delivery.Client_id" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <label asp-for="Delivery.Courier"></label>
+                <select asp-for="Delivery.Courier_id" asp-items="@Model.TDDCourier" class="form-control">
+                    <option selected>--Выберите курьера--</option>
+                </select>
+                <span asp-validation-for="Delivery.Courier_id" class="text-danger"></span>
+            </div>
+            <div class="col-4">
+                <label asp-for="Delivery.Pizza"></label>
+                <select asp-for="Delivery.Pizza_id" asp-items="@Model.TDDPizza" class="form-control">
+                    <option selected>--Выберите пиццу--</option>
+                </select>
+                <span asp-validation-for="Delivery.Pizza_id" class="text-danger"></span>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <input type="submit" class="btn btn-info w-75" value="Update" />
+                    </div>
+                    <div class="col">
+                        <a asp-action="Index" class="btn btn-danger w-75">Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
